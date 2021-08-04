@@ -1,0 +1,19 @@
+[package]
+name = "durandal"
+version = "0.1.0"
+authors = ["Matt Chun-Lum <matt@questionable.engineering>"]
+edition = "2018"
+
+[lib]
+name = "durandal"
+path = "src/lib.rs"
+
+[[bin]]
+path = "src/main.rs"
+name = "durandal"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+clap = "2"
+config = "0.11"
