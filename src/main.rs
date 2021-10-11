@@ -1,3 +1,5 @@
+use durandal::cli;
+
 fn main() {
-    println!("Hello, world!");
+    cli::cli();
 }
