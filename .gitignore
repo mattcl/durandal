@@ -1,2 +1,5 @@
 /target
+*/target
 *.sw[a-z]
+Cargo.lock
+durandal-core/Cargo.lock

@@ -1,24 +1,6 @@
-[package]
-name = "durandal"
-version = "0.1.0"
-authors = ["Matt Chun-Lum <matt@questionable.engineering>"]
-edition = "2018"
-description = "Personal assistant"
+[workspace]
 
-[lib]
-name = "durandal"
-path = "src/lib.rs"
-
-[[bin]]
-path = "src/main.rs"
-name = "durandal"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
-[dependencies]
-anyhow = "1"
-clap = "2"
-config = "0.11"
-console = "0.14"
-tokio = { version = "1", features = ["full"] }
-which = "4.2"
+members = [
+  "durandal-core",
+  "durandal"
+]
