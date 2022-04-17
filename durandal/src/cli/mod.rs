@@ -1,4 +1,4 @@
-use anyhow::{self, bail, Context, Result};
+use anyhow::{self, bail, Result};
 use clap::{Parser, Subcommand};
 use durandal_core::external::ExternalCommand;
 use durandal_core::CliCommand;
