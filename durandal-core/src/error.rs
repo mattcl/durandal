@@ -1,11 +1,12 @@
 pub type Result<T> = std::result::Result<T, DurandalError>;
 
-/// DurandalError enumerates all possible errors returned by this library
+/// Enumerates the possible errors returned from this library
 #[derive(Debug)]
 pub enum DurandalError {
+    /// This indicates that a requested external command could not be found.
     UnknownExternalCommand(String),
 
-    /// Represents all other cases of
+    /// Represents all other cases of IOError
     IOError(std::io::Error),
 }
 

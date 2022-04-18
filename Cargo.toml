@@ -1,6 +1,8 @@
 [workspace]
 
 members = [
+  "durandal",
   "durandal-core",
-  "durandal"
+  "durandal-derives",
+  "durandal-task",
 ]

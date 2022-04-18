@@ -1,0 +1,17 @@
+[package]
+name = "durandal-derives"
+authors = ["Matt Chun-Lum <matt@questionable.engineering>"]
+version = "0.1.0"
+edition = "2021"
+description = "Procedural macros for durandal-core and others"
+publish = false
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+proc-macro = true
+
+[dependencies]
+syn = { version = "1.0" }
+quote = { version = "1.0" }
+proc-macro2 = { version = "1.0" }

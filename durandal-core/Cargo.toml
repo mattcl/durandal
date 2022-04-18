@@ -2,9 +2,12 @@
 name = "durandal-core"
 version = "0.1.0"
 edition = "2021"
+description = "Core functionality and utility for durandal cli tools"
+readme = "README.md"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 anyhow = "1.0"
+durandal-derives = { version = "^0.1.0", path = "../durandal-derives" }
 which = "4.2"

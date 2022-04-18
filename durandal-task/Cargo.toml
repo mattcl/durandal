@@ -1,0 +1,39 @@
+[package]
+name = "durandal-task"
+authors = ["Matt Chun-Lum <matt@questionable.engineering>"]
+version = "0.16.0"
+edition = "2021"
+description = "Taskwarrior associated helpers and workflows"
+exclude = ["/tests"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow = "1.0"
+chrono = "0.4"
+clap = { version = "3.1", features = ["derive"] }
+comfy-table = "4.1"
+config = "0.11"
+console = "0.14"
+dialoguer = "0.8"
+dirs = "4.0"
+durandal-core = { version = "^0.1.0", path = "../durandal-core" }
+enum_dispatch = "0.3"
+handlebars = "4.2.2"
+linkify = "0.8"
+nom = "7.0.0"
+reqwest = { version = "0.11", features = ["blocking", "json"] }
+serde = { version = "1.0", features = ["derive"] }
+shlex = "0.1"
+# task-hookrs = "*"
+# this person removed the repo from github and didn't update the cargo registry
+# and hasn't pushed a new version that fixes the urgency thing despite changes
+# for that being merged in over a year ago. Add to that the fact that cargo
+# doesn't seem to be able to talk directly to his repo, and we have a party
+task-hookrs = { git = "https://github.com/mattcl/task-hookrs.git" }
+textwrap = "0.14"
+uuid = "*"
+which = "4.2"
+
+[dev-dependencies]
+assert_cmd = "2.0"

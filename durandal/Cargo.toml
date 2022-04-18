@@ -3,13 +3,14 @@ name = "durandal"
 authors = ["Matt Chun-Lum <matt@questionable.engineering>"]
 version = "0.1.0"
 edition = "2021"
+description = "Productivity and utility kitchen sink"
 exclude = ["/tests"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 anyhow = "1.0"
-clap = { version = "3.1", features = ["derive"] }
+clap = { version = "3.1", features = ["cargo", "derive"] }
 durandal-core = { version = "^0.1.0", path = "../durandal-core" }
 which = "4.2"
 

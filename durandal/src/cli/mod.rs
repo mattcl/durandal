@@ -1,7 +1,6 @@
-use anyhow::{self, bail, Result};
+use anyhow::Result;
 use clap::{Parser, Subcommand};
-use durandal_core::external::ExternalCommand;
-use durandal_core::CliCommand;
+use durandal_core::CliDispatch;
 
 mod list;
 
@@ -20,33 +19,11 @@ impl Cli {
     }
 }
 
-#[derive(Subcommand)]
+#[derive(Subcommand, CliDispatch)]
 pub(crate) enum Commands {
     #[clap(alias = "commands")]
     List(List),
 
     #[clap(external_subcommand)]
     External(Vec<String>),
-}
-
-impl Commands {
-    pub fn run(&self) -> Result<()> {
-        match self {
-            Self::List(cmd) => cmd.run(),
-            // This match arm terminates the current process because `run`
-            // will exit
-            Self::External(args) => {
-                if args.is_empty() {
-                    bail!("Unexpected empty external subcommand arg vector");
-                }
-
-                ExternalCommand::new()
-                    .prefix("durandal")
-                    .name(&args[0])
-                    .args(&args[1..])
-                    .build()?
-                    .run()
-            }
-        }
-    }
 }

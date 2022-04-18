@@ -3,3 +3,4 @@
 *.sw[a-z]
 Cargo.lock
 durandal-core/Cargo.lock
+durandal-derives/Cargo.lock
