@@ -408,6 +408,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "dissimilar"
+version = "1.0.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "31ad93652f40969dead8d4bf897a41e9462095152eb21c56e5830537e41179dd"
+
+[[package]]
 name = "doc-comment"
 version = "0.3.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -437,9 +443,13 @@ dependencies = [
 name = "durandal-derives"
 version = "0.1.0"
 dependencies = [
+ "anyhow",
+ "clap",
+ "durandal-core",
  "proc-macro2",
  "quote",
  "syn",
+ "trybuild",
 ]
 
 [[package]]
@@ -643,6 +653,12 @@ name = "gimli"
 version = "0.26.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "78cc372d058dcf6d5ecd98510e7fbc9e5aec4d21de70f65fea8fecebcd881bd4"
+
+[[package]]
+name = "glob"
+version = "0.3.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "9b919933a397b79c37e33b77bb2aa3dc8eb6e165ad809e58ff75bc7db2e34574"
 
 [[package]]
 name = "h2"
@@ -1841,6 +1857,22 @@ name = "try-lock"
 version = "0.2.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "59547bce71d9c38b83d9c0e92b6066c4253371f15005def0c30d9657f50c7642"
+
+[[package]]
+name = "trybuild"
+version = "1.0.59"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "606ab3fe0065741fdbb51f64bcb6ba76f13fad49f1723030041826c631782764"
+dependencies = [
+ "dissimilar",
+ "glob",
+ "once_cell",
+ "serde 1.0.136",
+ "serde_derive",
+ "serde_json",
+ "termcolor",
+ "toml",
+]
 
 [[package]]
 name = "typenum"

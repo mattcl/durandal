@@ -11,7 +11,21 @@ publish = false
 [lib]
 proc-macro = true
 
+[[test]]
+name = "tests"
+path = "tests/integration.rs"
+
 [dependencies]
 syn = { version = "1.0" }
 quote = { version = "1.0" }
 proc-macro2 = { version = "1.0" }
+
+# So, yeah. Technically durandal-core re-exports the macros defined here, but
+# I guess I wanted the tests to reside with the macro crate. The only reason we
+# actually need durandal-core is for the CliDispatch traits. This is technically
+# a cycle, I guess, since durandal-core in-turn depends on this crate.
+[dev-dependencies]
+anyhow = "1.0"
+clap = { version = "3.1", features = ["derive"] }
+durandal-core = { path = "../durandal-core" }
+trybuild = { version = "1.0", features = ["diff"] }
