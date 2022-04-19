@@ -17,9 +17,8 @@ pub struct RFCUtil;
 impl CliMetaCommand for RFCUtil {
     type Meta = Config;
 
-    fn run(&self, _config: &Self::Meta) -> Result<()> {
-        let rfc_filter = "status:pending proj:hum.bw.rfcs +rfc_inbox";
-        let rfcs = load_tasks(&rfc_filter).with_context(|| "Could not fetch rfcs")?;
+    fn run(&self, config: &Self::Meta) -> Result<()> {
+        let rfcs = load_tasks(&config.rfcs.filter).with_context(|| "Could not fetch rfcs")?;
 
         let finder = LinkFinder::new();
 
@@ -56,7 +55,7 @@ impl CliMetaCommand for RFCUtil {
                     .with_description(&description)
                     .with_contexts(&[ActionCategory::Computer, ActionCategory::Work])
                     .with_tags(["rnr"])
-                    .with_project("hum.rnr".into())
+                    .with_project(config.rfcs.rnr_task_project.clone().into())
                     .build()?;
 
                 // remove the rfc_inbox tag from the original task

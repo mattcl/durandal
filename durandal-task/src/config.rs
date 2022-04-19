@@ -10,6 +10,17 @@ pub struct IouConfig {
 }
 
 #[derive(Debug, Clone, Deserialize)]
+pub struct Rfcs {
+    pub filter: String,
+    pub rnr_task_project: String,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+pub struct Requests {
+    pub filter: String,
+}
+
+#[derive(Debug, Clone, Deserialize)]
 pub struct Scrum {
     pub completed: String,
 
@@ -44,6 +55,8 @@ pub struct Config {
     pub iou: IouConfig,
     #[serde(default)]
     pub excluded_projects: HashSet<String>,
+    pub rfcs: Rfcs,
+    pub requests: Requests,
     pub scrum: Scrum,
 }
 
