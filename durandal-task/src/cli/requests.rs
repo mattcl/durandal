@@ -15,7 +15,8 @@ impl CliMetaCommand for Requests {
     fn run(&self, config: &Self::Meta) -> Result<()> {
         let iou_client = make_iou_client(&config)?;
 
-        let prs = load_tasks(&config.requests.filter).with_context(|| "Could not fetch pull requests")?;
+        let prs =
+            load_tasks(&config.requests.filter).with_context(|| "Could not fetch pull requests")?;
 
         for task in &prs {
             process_pr(task.clone(), &iou_client)?;

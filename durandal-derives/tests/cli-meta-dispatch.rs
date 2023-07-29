@@ -1,5 +1,5 @@
 use anyhow::Result;
-use clap::{Parser, Subcommand, Args};
+use clap::{Args, Parser, Subcommand};
 use durandal_core::CliMetaCommand;
 use durandal_derives::CliMetaDispatch;
 
@@ -19,13 +19,11 @@ impl Cli {
     }
 }
 
-
 #[derive(Subcommand, CliMetaDispatch)]
 #[cli_meta(FakeConfig)]
 pub enum Commands {
     Foo(Foo),
     Bar(Foo),
-
     // I'd like to test this, but it relies on a crate name. Particularly the
     // crate_name! macro from clap. So I guess we have to figure that out.
     // #[clap(external_subcommand)]
@@ -33,7 +31,7 @@ pub enum Commands {
 }
 
 #[derive(Args)]
-pub struct Foo { }
+pub struct Foo {}
 
 impl CliMetaCommand for Foo {
     type Meta = FakeConfig;

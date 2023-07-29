@@ -1,5 +1,5 @@
 use anyhow::Result;
-use clap::{Parser, Subcommand, Args};
+use clap::{Args, Parser, Subcommand};
 use durandal_core::CliCommand;
 use durandal_derives::CliDispatch;
 
@@ -17,12 +17,10 @@ impl Cli {
     }
 }
 
-
 #[derive(Subcommand, CliDispatch)]
 pub enum Commands {
     Foo(Foo),
     Bar(Foo),
-
     // I'd like to test this, but it relies on a crate name. Particularly the
     // crate_name! macro from clap. So I guess we have to figure that out.
     // #[clap(external_subcommand)]
@@ -30,7 +28,7 @@ pub enum Commands {
 }
 
 #[derive(Args)]
-pub struct Foo { }
+pub struct Foo {}
 
 impl CliCommand for Foo {
     fn run(&self) -> anyhow::Result<()> {
