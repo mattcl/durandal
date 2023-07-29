@@ -206,13 +206,14 @@ pub fn load_tasks(filter: &str) -> Result<Vec<Task>> {
     let mut task = Command::new("task");
     task.arg("rc.json.array=on");
     task.arg("rc.confirmation=off");
-    task.arg("export");
 
     if let Some(cmd) = shlex::split(filter) {
         for s in cmd {
             task.arg(&s);
         }
     }
+
+    task.arg("export");
 
     let output = task.output()?;
 
